@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./css/survey.css">
+  <title>Phone Survey Form</title>
+</head>
+<body>
+  <main>
+    <h1>Website Survey Form</h1>
+    <p>Thank you for being here. Kindly answer the following questions about this website</p>
+    <form method="POST" id="survey">
+      <div id="left-desktop">
+        <fieldset>
+          <legend>Quality:<span class="required">*</span> <small>Rate the quality of this website?</small></legend>
+          <label>
+            <input type="radio" name="os" value="android" required>
+            Excellent
+          </label>
+          <label>
+            <input type="radio" name="os" value="ios">
+            Average
+          </label>
+          <label>
+            <input type="radio" name="os" value="other" id="os-other">
+            Bad
+          </label>
+        </fieldset>
+        <label class="standalone standalone-text">
+         Website Info:<span class="required">*</span>
+          <input type="text" name="company" placeholder="" required minlength="3">
+        </label>
+        <label class="standalone standalone-text">
+          What are the Flaws of this website:<span class="required">*</span>
+          <input type="text" name="model" placeholder="Flaws of the website" required minlength="3">
+        </label>
+      </div>
+      <div id="right-desktop">
+        <label class="standalone">
+          Access to Information:<span class="required">*</span>
+          <select name="sims" required>
+            <option value="1">Very Quick</option>
+
+            <option value="2" selected>Average</option>
+
+            <option value="3">Normal</option>
+
+            <option value="4">Not at all</option>
+          </select>
+        </label>
+        <fieldset>
+          <legend>Any Open Ideas<span class="required">*</span> <small> On Things we need to change on the website</small></legend>
+          <label>
+            <input type="checkbox" name="facebook" checked>
+           Quality
+          </label>
+          <label>
+            <input type="checkbox" name="whatsapp" checked>
+            Information
+          </label>
+          <label>
+            <input type="checkbox" name="instagram">
+            Graphics
+          </label>
+          <label>
+            <input type="checkbox" name="messenger">
+            Feel
+          </label>
+          <label>
+            <input type="checkbox" name="social-other" id="social-other">
+            Other:
+            <input type="text" name="social-other-text" id="social-other-text" placeholder="Any other? Kindly list them here ... " tabindex="-1" fieldset-text>
+          </label>
+        </fieldset>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </main>
+  <script type="text/javascript">
+    // make focus to enter the os-other-text input if other is clicked in os
+    const osOther = document.querySelector('#os-other');
+    osOther.addEventListener('click', e => document.querySelector('#os-other-text').focus());
+    // make focus to enter the social-other-text input if social-other is clicked
+    const socialOther = document.querySelector('#social-other');
+    socialOther.addEventListener('change', e => socialOther.checked ? document.querySelector('#social-other-text').focus() : false);
+    // post form details to google sheets
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyXBEa2ViXCNWQg6mJOp2XCdJa8WR_cf-yYYR5X1ixKG6PbHFQ/exec';
+    const form = document.querySelector('#survey');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      document.querySelector('button').disabled = true;
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => location.assign('thankyou.html'))
+        .catch(error => console.error('Error!', error.message));
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+/* normalise */
+
+html, body {
+
+    margin: 0;
+  
+    padding: 0;
+  
+    font-size: 16px;
+  
+  }
+  
+  
+  
+  body {
+  
+    background-color: #f9fcff;
+  
+    font-family: 'Comic Neue', cursive;
+  
+    font-size: 1.2rem;
+  
+  }
+  
+  
+  
+  main {
+  
+    margin: 50px auto;
+  
+    width: 80%;
+  
+    padding: 15px;
+  
+    max-width: 450px;
+  
+    border: 2px solid #f9fcff;
+  
+    border-radius: 15px;
+  
+    padding-bottom: 80px;
+  
+    background-color: white;
+  
+    box-shadow: 0 0 10px 3px #3F51B5;
+  
+  }
+  
+  
+  
+  h1 {
+  
+    margin: 0;
+  
+    text-align: center;
+  
+    font-weight: 700;
+  
+    text-decoration: underline;
+  
+    text-decoration-style: double;
+  
+  }
+  
+  
+  
+  p {
+  
+    margin: 15px auto;
+  
+    text-align: center;
+  
+  }
+  
+  
+  
+  fieldset {
+  
+    border: none;
+  
+    padding: 6px 12px 5px 12px;
+  
+  }
+  
+  
+  
+  legend {
+  
+    font-weight: bold;
+  
+  }
+  
+  
+  
+  small {
+  
+    display: block;
+  
+    margin-bottom: -5px;
+  
+    font-size: 0.9rem;
+  
+    font-weight: 300;
+  
+  }
+  
+  
+  
+  label {
+  
+    display: block;
+  
+    margin: 5px;
+  
+  }
+  
+  
+  
+  label.standalone {
+  
+    margin: 15px 15px;
+  
+    font-weight: 700;
+  
+  }
+  
+  
+  
+  label.standalone.standalone-text input {
+  
+    display: block;
+  
+  }
+  
+  
+  
+  span.required {
+  
+    color: red;
+  
+  }
+  
+  
+  
+  input[type="text"] {
+  
+    border: none;
+  
+    border-bottom: 1px solid grey;
+  
+    margin-top: 5px;
+  
+    display: block;
+  
+    min-width: 240px;
+  
+    transition: border 1s;
+  
+  }
+  
+  
+  
+  input[type="text"]:focus {
+  
+    border: none;
+  
+    border-bottom: 3px solid #0000FF;
+  
+    outline: none;
+  
+  }
+  
+  
+  
+  input[fieldset-text] {
+  
+    margin-left: 15px;
+  
+    min-width: 225px;
+  
+  }
+  
+  
+  
+  select {
+  
+    min-width: 40px;
+  
+    min-height: 20px;
+  
+    margin: 0 0 0 10px;
+  
+  }
+  
+  
+  
+  button {
+  
+    min-width: 75px;
+  
+    padding: 10px;
+  
+    border: none;
+  
+    border-radius: 7px;
+  
+    color: white;
+  
+    background-color: #0000FF;
+  
+    box-shadow: 0.5px 0.5px 3px 1px #3F51B5;
+  
+    font-family: 'Comic Neue', cursive;
+  
+    font-size: 1.3rem;
+  
+    font-weight: bold;
+  
+  } 
+  
+  
+  
+  button[type="submit"] {
+  
+    float: right;
+  
+    margin: 20px 35px 20px 0;
+  
+  }
+  
+  
+  
+  /* make the form two columns in desktop */
+  
+  @media (min-width: 992px) {
+  
+    main {
+  
+      max-width: 900px;
+  
+      border-radius: 25px;
+  
+      padding: 10px 50px;
+  
+    }
+  
+  
+  
+    form {
+  
+      display: grid;
+  
+      grid-template-columns: repeat(2, 1fr);
+  
+      grid-gap: 25px;
+  
+    }
+  
+  
+  
+    form div {
+  
+      margin-top: 10px;
+  
+    }
+  
+  
+  
+    input[type="text"] {
+  
+      min-width: 300px;
+  
+    }
+  
+  
+  
+    input[fieldset-text] {
+  
+      min-width: 285px;
+  
+    }
+  
+  }
