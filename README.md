@@ -1,2 +1,2 @@
 # survey
-https://olise21.github.io/survey/survey.html
+https://olise21.github.io/survey/surveyform.html
